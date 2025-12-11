@@ -3,6 +3,8 @@ FROM homebrew/ubuntu24.04
 USER root
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone
+# 切换回 linuxbrew 用户
+USER linuxbrew
 # 设置环境变量
 ENV HOMEBREW_NO_AUTO_UPDATE=1
 ENV TZ=Asia/Shanghai
