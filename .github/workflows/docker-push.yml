@@ -55,15 +55,29 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=raw,value=latest,enable={{is_default_branch}}
 
+      - name: 提取项目版本号
+        id: project
+        run: |
+          # 如果是标签推送，使用标签作为版本号
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+          # 如果是主分支，使用 latest
+          elif [[ $GITHUB_REF == refs/heads/main || $GITHUB_REF == refs/heads/master ]]; then
+            VERSION="latest"
+          # 否则使用短提交哈希
+          else
+            VERSION=$(git rev-parse --short HEAD)
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "检测到的版本号: $VERSION"
+
       - name: 构建并推送Docker镜像
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            ${{ env.IMAGE_NAME }}:latest
-            ${{ env.IMAGE_NAME }}:${{ steps.project.outputs.version }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64
           cache-from: type=gha
@@ -75,6 +89,7 @@ jobs:
         run: |
           echo "🎉 Docker 镜像构建和推送完成!"
           echo "📦 镜像标签: ${{ steps.meta.outputs.tags }}"
+          echo "🏷️ 项目版本: ${{ steps.project.outputs.version }}"
           echo "🔑 镜像摘要: ${{ steps.build-and-push.outputs.digest }}"
           echo "🌐 可以使用以下命令拉取镜像:"
           for tag in $(echo "${{ steps.meta.outputs.tags }}" | tr ',' '\n'); do
