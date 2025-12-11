@@ -1,5 +1,12 @@
 # Dolphie UI - MySQL Web 监控面板
 
+![Docker Pulls](https://img.shields.io/docker/pulls/izerui/dolphie-ui?style=flat-square)
+![Docker Image Size](https://img.shields.io/docker/image-size/izerui/dolphie-ui?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/izerui/dolphie-ui/docker-push.yml?branch=main&style=flat-square)
+![GitHub Release](https://img.shields.io/github/v/release/izerui/dolphie-ui?style=flat-square)
+![License](https://img.shields.io/github/license/izerui/dolphie-ui?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/izerui/dolphie-ui?style=flat-square)
+
 一个基于 Docker 的 MySQL 监控 Web 界面，通过 ttyd 提供 Dolphie 的 Web 访问能力。
 
 ## 简介
@@ -144,6 +151,10 @@ Dolphie 支持以下常用参数：
 
 
 ## 相关链接
+
+![Dolphie](https://img.shields.io/badge/Dolphie-官方仓库-blue?style=flat-square)
+![ttyd](https://img.shields.io/badge/ttyd-官方仓库-blue?style=flat-square)
+![Docker Hub](https://img.shields.io/badge/Docker_Hub-镜像-blue?style=flat-square)
 
 - [Dolphie 官方仓库](https://github.com/chanzuckerberg/dolphie)
 - [ttyd 官方仓库](https://github.com/tsl0922/ttyd)
