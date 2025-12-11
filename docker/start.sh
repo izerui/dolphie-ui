@@ -9,7 +9,7 @@ docker ps -a --format '{{.Names}}' | grep -q "^dolphie-ui$" && \
 
 # 启动新容器
 echo "拉取镜像并启动容器..."
-docker pull -q izerui/dolphie-ui
+docker pull izerui/dolphie-ui
 docker run -d -p 7681:7681 \
     -v "$(pwd)/$CONFIG_FILE":/home/linuxbrew/rds.conf \
     --name dolphie-ui \
