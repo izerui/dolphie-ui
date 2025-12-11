@@ -1,7 +1,6 @@
 FROM homebrew/ubuntu24.04
 
 # 修复apt权限问题并安装必要软件包（包含ping和telnet）
-USER root
 RUN mkdir -p /var/lib/apt/lists/partial && \
     chmod 755 /var/lib/apt/lists/partial && \
     apt-get update && \
