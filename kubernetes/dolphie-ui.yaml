@@ -43,7 +43,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: dolphie-ui-service
-  namespace: platform-yunji
+  namespace: platform
 spec:
   selector:
     app: dolphie-ui
@@ -60,7 +60,7 @@ metadata:
   name: dolphie-ui-ingress
   namespace: platform
   annotations:
-    nginx.org/websocket-services: "mysql-monitor-service"
+    nginx.org/websocket-services: "dolphie-ui-service"
     nginx.ingress.kubernetes.io/service-upstream: "true"
     nginx.org/redirect-to-https: "true"
 spec:

@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  dolphie-ui:
+    image: izerui/dolphie-ui
+    container_name: dolphie-ui
+    restart: unless-stopped
+    ports:
+      - "7681:7681"
+    volumes:
+      - ./rds.conf:/home/linuxbrew/rds.conf:ro
+    command: >
+      ttyd -p 7681 --writable -c admin:admin123
+      dolphie --config-file rds.conf --hostgroup rds_cluster
+      --tab-setup
