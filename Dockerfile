@@ -20,8 +20,20 @@ RUN git config --global --add safe.directory /home/linuxbrew/.linuxbrew/Homebrew
     git config --global --add safe.directory /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core && \
     git config --global --add safe.directory '*'
 
+# 配置 Homebrew 镜像源
+RUN echo "🚀 正在切换 Homebrew 镜像 (源)..." && \
+    cd "$(brew --repo)" && \
+    git remote set-url origin https://github.com/Homebrew/brew.git && \
+    git fetch origin && \
+    git reset --hard origin/master && \
+    cd "$(brew --repo homebrew/core)" && \
+    git remote set-url origin https://github.com/Homebrew/homebrew-core.git && \
+    git fetch origin && \
+    git reset --hard origin/master
 
 # 设置环境变量并安装软件
+#ENV HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+ENV HOMEBREW_NO_AUTO_UPDATE=1
 ENV TZ=Asia/Shanghai
 
 RUN brew update --verbose && \
