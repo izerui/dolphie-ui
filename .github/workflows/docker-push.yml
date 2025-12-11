@@ -61,9 +61,11 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ steps.project.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
           # 显示详细的构建进度
