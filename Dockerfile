@@ -9,6 +9,5 @@ USER linuxbrew
 ENV HOMEBREW_NO_AUTO_UPDATE=1
 ENV TZ=Asia/Shanghai
 # 更新 Homebrew 并安装软件
-RUN brew update --verbose && \
-    brew install ttyd dolphie && \
-    echo "🎉 Homebrew 镜像制作成功！"
+RUN brew update
+RUN brew install ttyd dolphie
