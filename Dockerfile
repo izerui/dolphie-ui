@@ -33,7 +33,7 @@ RUN git config --global --add safe.directory /home/linuxbrew/.linuxbrew/Homebrew
 
 # 设置环境变量并安装软件
 #ENV HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-ENV HOMEBREW_NO_AUTO_UPDATE=1
+#ENV HOMEBREW_NO_AUTO_UPDATE=1
 ENV TZ=Asia/Shanghai
 
 RUN brew update --verbose && \
