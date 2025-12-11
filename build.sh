@@ -1,4 +1,4 @@
-docker build -t ubuntu-ttyd .
+docker build -t dolphie-ui .
 # docker run -it ubuntu-ttyd /bin/bash
-docker tag ubuntu-ttyd izerui/ubuntu-ttyd
-docker push izerui/ubuntu-ttyd
+#docker tag dolphie-ui izerui/dolphie-ui
+#docker push izerui/dolphie-ui
