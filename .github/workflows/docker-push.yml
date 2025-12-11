@@ -16,6 +16,7 @@ on:
       - "build.sh"
       - "Dockerfile"
       - ".github/workflows/docker-build.yml"
+  workflow_dispatch:
 
 env:
   REGISTRY: docker.io
