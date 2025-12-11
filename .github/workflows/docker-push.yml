@@ -66,6 +66,15 @@ jobs:
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          # 显示详细的构建进度
+          progress: plain
 
-      - name: 镜像摘要
-        run: echo ${{ steps.build-and-push.outputs.digest }}
+      - name: 构建和推送完成通知
+        run: |
+          echo "🎉 Docker 镜像构建和推送完成!"
+          echo "📦 镜像标签: ${{ steps.meta.outputs.tags }}"
+          echo "🔑 镜像摘要: ${{ steps.build-and-push.outputs.digest }}"
+          echo "🌐 可以使用以下命令拉取镜像:"
+          for tag in $(echo "${{ steps.meta.outputs.tags }}" | tr ',' '\n'); do
+            echo "docker pull $tag"
+          done
