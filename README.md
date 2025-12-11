@@ -6,6 +6,8 @@
 
 Dolphie 是一个现代的 MySQL 监控工具，提供直观的终端界面实时显示 MySQL 服务器性能指标。本项目将 Dolphie 封装在 Docker 容器中，并通过 ttyd 提供 Web 访问界面，使您无需安装客户端即可在浏览器中监控 MySQL 性能。
 
+![demo.png](demo.png)
+
 ## 功能特点
 
 - 🚀 基于 Homebrew Ubuntu 24.04 镜像构建
