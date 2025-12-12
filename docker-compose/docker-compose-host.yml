@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  dolphie-ui:
+    image: izerui/dolphie-ui
+    container_name: dolphie-ui
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./rds.conf:/home/linuxbrew/rds.conf:ro
+    command: >
+      ttyd -p 7681 --writable -c admin:admin123
+      dolphie --config-file rds.conf --hostgroup rds_cluster
+      --tab-setup
+
+# 注意：使用主机网络模式时，容器将直接使用宿主机的网络接口，
+# 可以直接访问宿主机上的 MySQL 实例，无需通过端口映射
+# 启动命令：docker-compose -f docker-compose-host.yml up -d
