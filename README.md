@@ -152,11 +152,11 @@ Dolphie 支持以下常用参数：
 
 ## 相关链接
 
-[![Dolphie](https://img.shields.io/badge/Dolphie-官方仓库-blue?style=flat-square)](https://github.com/chanzuckerberg/dolphie)
+[![Dolphie](https://img.shields.io/badge/Dolphie-官方仓库-blue?style=flat-square)](https://github.com/charles-001/dolphie)
 [![ttyd](https://img.shields.io/badge/ttyd-官方仓库-blue?style=flat-square)](https://github.com/tsl0922/ttyd)
 [![Docker Hub](https://img.shields.io/badge/Docker_Hub-镜像-blue?style=flat-square)](https://hub.docker.com/r/izerui/dolphie-ui)
 
-- [Dolphie 官方仓库](https://github.com/chanzuckerberg/dolphie)
+- [Dolphie 官方仓库](https://github.com/charles-001/dolphie)
 - [ttyd 官方仓库](https://github.com/tsl0922/ttyd)
 - [Docker Hub 镜像](https://hub.docker.com/r/izerui/dolphie-ui)
 
